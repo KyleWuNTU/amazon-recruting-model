@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 from parameters.sector_assumption import tech_ratio_progression, starting_employees, growth_rates
+from parameters.weekly_assumption import weekly_hiring_percentages
 
 def get_tech_ratio(year, sector):
     """Calculate tech ratio for a given year using linear interpolation"""
@@ -86,7 +87,6 @@ def get_annual_hiring_needs(df, scenario='median'):
     
     return hiring_needs
 
-######Attirtion##########
 def calculate_weekly_hiring(attrition, weekly_percentages):
     data = []
     for year_index, year_attrition in enumerate(attrition):
@@ -94,8 +94,7 @@ def calculate_weekly_hiring(attrition, weekly_percentages):
         for week, hiring_need in enumerate(weekly_hiring, start=1):
             data.append({"Year": 2024 + year_index, "Week": week, "Hiring Need": hiring_need})
     return pd.DataFrame(data)
-########################
-###By Target Hires######
+
 def calculate_weekly_hiring_gap(hiring_gap, weekly_percentages):
     weekly_data = []
     for year, row in hiring_gap.iterrows():
@@ -111,4 +110,3 @@ def calculate_weekly_hiring_gap(hiring_gap, weekly_percentages):
                 "Weekly_Gap": gap
             })
     return pd.DataFrame(weekly_data)
-#########################

@@ -1,6 +1,5 @@
 #df = pd.read_csv('../data/bls_unemployment_by_age_group.csv')
 #weekly hiring percentages normalized to 100%
-import numpy as np
 weekly_hiring_percentages = np.array([
     0.300, 0.656, 0.385, 0.403, 0.525, 0.685, 1.041, 0.910, 0.985, 1.219,
     1.275, 1.163, 1.210, 1.069, 1.144, 1.425, 0.985, 1.229, 1.472, 1.491,
